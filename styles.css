@@ -1,0 +1,31 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #333;
+}
+
+.header-container,
+.book-list,
+.add-book-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.input-wrapper {
+  margin-bottom: 8px;
+}
+
+.form input {
+  width: 70%;
+  padding: 4px;
+}
+
+.form button {
+  padding: 4px;
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.add-book-form {
+  padding-top: 20px;
+}

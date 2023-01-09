@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Awsome Books</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
-        <h1>Awsome Books</h1>
+        <div class="header-container">
+
+            <h1>Awsome Books</h1>
+        </div>
     </header>
     <main>
-        <section class="bookList">
-            
+        <section>
+            <div class="book-list">
+
+            </div>
         </section>
-        <section class="addBook">
-            <form action="" class="form">
-                <input type="text" placeholder="Title">
-                <input type="text" placeholder="Author">
-                <button type="submit">Add</button>
-            </form>
+        <section>
+            <div class="add-book-form">
+                <form action="" class="form">
+                    <div class="input-wrapper">
+                        <input type="text" name="title" required placeholder="Title" aria-label="Book title">
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" name="author" required placeholder="Author" aria-label="Book Author">
+
+                    </div>
+                    <button type="submit">Add</button>
+                </form>
+            </div>
+
         </section>
     </main>
 
     <script src="main.js"></script>
 </body>
+
 </html>
