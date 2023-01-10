@@ -12,10 +12,8 @@ const populateUI = () => {
   books.forEach((book) => {
     generalMarkup += `
     <div class="books">
-                    <h3>${book.title}</h3>
-                    <p>${book.author}</p>
-                    <button class="remove-book-btn" data-id=${book.id}>Remove</button>
-                    <hr/>
+        <p>"${book.title}" by ${book.author}</p>
+        <p><button class="remove-book-btn" data-id=${book.id}>Remove</button></p>
     </div>
     `;
   });

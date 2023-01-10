@@ -9,6 +9,12 @@ body {
 .add-book-form {
   max-width: 600px;
   margin: 0 auto;
+  text-align: center;
+}
+
+.book-list {
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
 .input-wrapper {
@@ -16,7 +22,7 @@ body {
 }
 
 .form input {
-  width: 70%;
+  width: 100%;
   padding: 4px;
 }
 
@@ -26,6 +32,31 @@ body {
   min-width: 100px;
 }
 
+.buttonContainer {
+  text-align: right;
+}
+
 .add-book-form {
   padding-top: 20px;
+}
+
+.form {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.books {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  border-radius: 3px;
+}
+
+.books:nth-child(odd) {
+  background-color: rgb(230, 225, 225);
+}
+
+hr {
+  width: 150px;
+  margin: 20px auto;
 }
