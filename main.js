@@ -22,6 +22,15 @@ class Books {
       `;
     });
 
+    if (this.books.length === 0) {
+      generalMarkup = `
+      <div class="no-books-container">
+      <h3>No books to display.</h3>
+      <p>Add a book.</p>
+      </div>
+      `;
+    }
+
     this.bookListContainer.insertAdjacentHTML("afterbegin", generalMarkup);
   }
 

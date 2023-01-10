@@ -43,6 +43,15 @@ h2 {
   margin-top: 20px;
 }
 
+.no-books-container {
+  padding: 20px;
+}
+
+.no-books-container p {
+  margin-top: 4px;
+  font-size: 18px;
+}
+
 .remove-book-btn {
   padding: 4px;
 }
