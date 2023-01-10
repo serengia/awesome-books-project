@@ -28,10 +28,7 @@ h2 {
 }
 
 .header-container {
-  /* background-color: #333; */
-  /* color: #fff; */
   height: 90px;
-
   display: flex;
   align-items: flex-end;
   justify-content: center;
