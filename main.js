@@ -1,71 +1,76 @@
-const bookListContainer = document.querySelector(".book-list");
-const form = document.querySelector(".form");
+class Books {
+  constructor() {
+    this.books = this.getBooks();
+    this.bookListContainer = document.querySelector(".book-list");
+    this.form = document.querySelector(".form");
 
-const getBooks = () => JSON.parse(localStorage.getItem("books")) || [];
+    this.populateUI();
+  }
 
-const populateUI = () => {
-  let generalMarkup = ``;
+  getBooks() {
+    return JSON.parse(localStorage.getItem("books")) || [];
+  }
 
-  //   Get latest books list
-  const books = getBooks();
+  populateUI() {
+    let generalMarkup = ``;
+    this.books.forEach((book) => {
+      generalMarkup += `
+      <div class="books">
+          <p>"${book.title}" by ${book.author}</p>
+          <p><button class="remove-book-btn" data-id=${book.id}>Remove</button></p>
+      </div>
+      `;
+    });
 
-  books.forEach((book) => {
-    generalMarkup += `
-    <div class="books">
-        <p>"${book.title}" by ${book.author}</p>
-        <p><button class="remove-book-btn" data-id=${book.id}>Remove</button></p>
-    </div>
-    `;
-  });
+    this.bookListContainer.insertAdjacentHTML("afterbegin", generalMarkup);
+  }
 
-  bookListContainer.insertAdjacentHTML("afterbegin", generalMarkup);
-};
+  addBook() {
+    const formData = {};
+    this.form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      formData.title = e.target.title.value;
+      formData.author = e.target.author.value;
+      formData.id = Date.now().toString();
 
-// POPULATE UI ON PAGE LOAD /RELOAD
-populateUI();
+      // Get latest books arr and add new book
 
-// ADD BOOK
-const addBook = () => {
-  const formData = {};
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    formData.title = e.target.title.value;
-    formData.author = e.target.author.value;
-    formData.id = Date.now().toString();
+      this.books.push(formData);
 
-    // Get latest books arr and add new book
-    const books = getBooks();
-    books.push(formData);
+      // Update local storage - over ride the existing arr with new arr
+      localStorage.setItem("books", JSON.stringify(this.books));
 
-    // Update local storage - over ride the existing arr with new arr
-    localStorage.setItem("books", JSON.stringify(books));
+      // Refresh page
+      // eslint-disable-next-line no-restricted-globals
+      location.reload();
+    });
+  }
 
-    // Refresh page
+  removeBook(id) {
+    const filteredBooks = this.books.filter((book) => book.id !== id);
+
+    // Update local storage
+    localStorage.setItem("books", JSON.stringify(filteredBooks));
+
+    // Update ui
     // eslint-disable-next-line no-restricted-globals
     location.reload();
-  });
-};
+  }
 
-addBook();
+  removeBookHandler() {
+    // REMOVE BOOK - Event bubbling
+    this.bookListContainer.addEventListener("click", (e) => {
+      const clickedBtn = e.target.closest(".remove-book-btn");
 
-const removeBook = (id) => {
-  const books = getBooks();
-  const filteredBooks = books.filter((book) => book.id !== id);
+      if (!clickedBtn) return;
+      const idToRemove = clickedBtn.dataset.id;
 
-  // Update local storage
-  localStorage.setItem("books", JSON.stringify(filteredBooks));
+      this.removeBook(idToRemove);
+    });
+  }
+}
 
-  // Update ui
-  // eslint-disable-next-line no-restricted-globals
-  location.reload();
-};
+const createBook = new Books();
 
-// REMOVE BOOK
-bookListContainer.addEventListener("click", (e) => {
-  const clickedBtn = e.target.closest(".remove-book-btn");
-  if (!clickedBtn) return;
-
-  const idToRemove = clickedBtn.dataset.id;
-
-  removeBook(idToRemove);
-});
+createBook.addBook();
+createBook.removeBookHandler();

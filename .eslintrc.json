@@ -16,6 +16,7 @@
     "eol-last": "off",
     "linebreak-style": "off",
     "quotes": "off",
+    "class-methods-use-this": "off",
     "no-unused-vars": "warn",
     "import/extensions": [
       1,
