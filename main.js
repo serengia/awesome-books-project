@@ -1,3 +1,25 @@
+document.querySelector('.date').innerHTML = new Date();
+
+window.onload = () => {
+  document.getElementById('addNewBook').style.display = 'none';
+  document.getElementById('contact').style.display = 'none';
+};
+document.getElementById('listMenu').addEventListener('click', () => {
+  document.getElementById('bookList').style.display = '';
+  document.getElementById('addNewBook').style.display = 'none';
+  document.getElementById('contact').style.display = 'none';
+});
+document.getElementById('addBookMenu').addEventListener('click', () => {
+  document.getElementById('bookList').style.display = 'none';
+  document.getElementById('addNewBook').style.display = '';
+  document.getElementById('contact').style.display = 'none';
+});
+document.getElementById('contactMenu').addEventListener('click', () => {
+  document.getElementById('bookList').style.display = 'none';
+  document.getElementById('addNewBook').style.display = 'none';
+  document.getElementById('contact').style.display = '';
+});
+
 class Books {
   constructor() {
     this.books = this.getBooks();

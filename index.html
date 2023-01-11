@@ -13,19 +13,25 @@
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <h1>Awesome Books</h1>
+    <nav>
+        <div class="title">Awesome Books</div>
+        <div class="menu">
+            <ul class="navItems">
+                <li><a href="#" id="listMenu">List</a></li>
+                <li><a href="#" id="addBookMenu">Add New</a></li>
+                <li><a href="#" id="contactMenu">Contact</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
+    <div class="date"></div>
+    
     <main>
-        <section>
-            <div class="book-list">
-            </div>
-            <hr class="divider">
+        <section id="bookList">
+            <h2>All Awsome Books</h2>
+            <div class="book-list"></div>
         </section>
 
-        <section>
+        <section id="addNewBook">
             <div class="add-book-form">
                 <h2>Add a new book</h2>
                 <form action="" class="form">
@@ -41,10 +47,23 @@
                     </div>
                 </form>
             </div>
+        </section>
 
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <p>Do you have any queries or you just want to say "Hello"?<br>
+            You can reach out to us!</p>
+            <ul class="contactInfo">
+                <li>Our e-mail: seringia@gmail.com</li>
+                <li>Our Phone Number: +90000000000</li>
+                <li>Our Address: abc Street, xyz city, Pakistan.</li>
+            </ul>
         </section>
     </main>
 
+    <footer>
+        <div class="footer">Copyright by Seringia & Dilsehr</div>
+    </footer>
     <script src="main.js"></script>
 </body>
 
