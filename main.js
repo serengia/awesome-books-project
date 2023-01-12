@@ -95,9 +95,11 @@ class Books {
     this.bookListContainer.insertAdjacentHTML("beforeend", bookMarkup);
   }
 
-  showSuccessMessage() {
-    const successMarkup = `<p class="add-book-success-notification" style="color: green">Book successfully added</p>`;
-    this.form.insertAdjacentHTML("afterbegin", successMarkup);
+  showNotification(data) {
+    const {message, status, parentEl=this.form} = data;
+    const notificationMarkup = `<p class="add-book-success-notification" style="color: ${status ==='success'?'green':'red'}">${message}</p>`;
+    parentEl.insertAdjacentHTML("afterbegin", notificationMarkup);
+
 
     setTimeout(() => {
       // successMarkup.remove();
@@ -117,6 +119,7 @@ class Books {
       const author = e.target.author.value;
 
       if (title.trim().length === 0 || author.trim().length === 0) {
+        this.showNotification({message: 'Inputs are invalid', status: 'fail'});
         return;
       }
 
@@ -131,7 +134,8 @@ class Books {
       e.target.author.value = "";
 
       // Show success message
-      this.showSuccessMessage();
+      this.showNotification({message: 'You have added the book successfully', status: 'success'});
+    
 
       // Remove no books to display if it exists => OPTIONAL CHAINING
       document.querySelector(".no-books-container")?.remove();
