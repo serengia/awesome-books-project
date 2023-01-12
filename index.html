@@ -10,27 +10,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script defer src="main.js"></script>
 </head>
 
 <body>
     <header>
-        <div class="header-container">
-            <h1>Awesome Books</h1>
-        </div>
+        <nav>
+            <div class="title">Awesome Books</div>
+            <div class="menu">
+                <ul class="navItems">
+                    <li><a href="#" id="listMenu">List</a></li>
+                    <li><a href="#" id="addBookMenu">Add New</a></li>
+                    <li><a href="#" id="contactMenu">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="date"></div>
     </header>
+
     <main>
-        <section>
+        <section class="section" id="section-book-list">
+            <h2>All Awsome Books</h2>
             <div class="book-list">
             </div>
-            <hr class="divider">
         </section>
 
-        <section>
+        <section class="section" id="section-add-new-book">
             <div class="add-book-form">
                 <h2>Add a new book</h2>
                 <form action="" class="form">
                     <div class="input-wrapper">
-                        <input type="text" name="title" required placeholder="Title" aria-label="Book title">
+                        <input type="text" name="title" id="title" required placeholder="Title" aria-label="Book title">
                     </div>
                     <div class="input-wrapper">
                         <input type="text" name="author" required placeholder="Author" aria-label="Book Author">
@@ -41,11 +51,24 @@
                     </div>
                 </form>
             </div>
+        </section>
 
+        <section class="section" id="section-contact">
+            <h2>Contact Information</h2>
+            <p>Do you have any queries or you just want to say "Hello"?<br>
+                You can reach out to us!</p>
+            <ul class="contactInfo">
+                <li>Our e-mail: seringia@gmail.com</li>
+                <li>Our Phone Number: +90000000000</li>
+                <li>Our Address: abc Street, xyz city, Pakistan.</li>
+            </ul>
         </section>
     </main>
 
-    <script src="main.js"></script>
+    <footer>
+        <div class="footer">Copyright by Seringia & Dilsehr</div>
+    </footer>
+
 </body>
 
 </html>

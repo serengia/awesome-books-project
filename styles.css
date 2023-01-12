@@ -9,6 +9,39 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   color: #333;
+  line-height: 150%;
+  display: flex;
+  flex-direction: column;
+  min-height: 95vh;
+}
+
+main {
+  padding-bottom: 40px;
+}
+
+footer,
+nav {
+  width: 95%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 2px solid gray;
+}
+
+.navItems {
+  display: flex;
+  gap: 50px;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.date {
+  text-align: right;
+  padding: 0 30px;
 }
 
 h1 {
@@ -16,7 +49,8 @@ h1 {
 }
 
 h2 {
-  margin-bottom: 4px;
+  margin: 20px 0;
+  text-align: center;
 }
 
 /* .header-container, */
@@ -54,7 +88,7 @@ h2 {
 }
 
 .input-wrapper {
-  margin-bottom: 8px;
+  margin: 30px 0;
 }
 
 .form input {
@@ -81,21 +115,26 @@ h2 {
   margin: 0 auto;
 }
 
-.books {
+.book {
   display: flex;
   justify-content: space-between;
   padding: 20px;
   border-radius: 3px;
 }
 
-.books:nth-child(odd) {
+.book:nth-child(odd) {
   background-color: rgb(230, 225, 225);
 }
 
-.divider {
-  width: 150px;
-  margin: 40px auto 0 auto;
-  border: none;
-  height: 4px;
-  background-color: rgb(191, 191, 191);
+#section-contact {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contactInfo {
+  padding: 20px 0 50px 50px;
+}
+
+footer {
+  margin-top: auto;
 }
